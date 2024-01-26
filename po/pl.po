@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-19 16:10+0100\n"
-"PO-Revision-Date: 2023-04-08 10:03+0200\n"
-"Last-Translator: pololoko111 <pololoko111@o2.pl>\n"
+"POT-Creation-Date: 2024-01-16 18:11+0100\n"
+"PO-Revision-Date: 2024-01-16 18:11+0100\n"
+"Last-Translator: hasiok\n"
 "Language-Team: \n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid ""
 "\n"
@@ -335,7 +335,7 @@ msgstr ""
 
 #, python-format
 msgid "%s (files)"
-msgstr "%d (pliki)"
+msgstr "%s (pliki)"
 
 #, python-format
 msgid "%s KSymb/s"
@@ -1051,9 +1051,6 @@ msgstr "Kultura/Sztuka (bez muzyki)"
 msgid "Aruba"
 msgstr ""
 
-msgid "As defined by the skin"
-msgstr "Jak zdefiniowana w skórce"
-
 msgid "Ask user"
 msgstr "Zapytaj użytkownika"
 
@@ -1076,6 +1073,8 @@ msgid ""
 "Attention - forced loading recovery image!\n"
 "Create an empty STARTUP_RECOVERY file at the root of your HDD/USB drive and hold the Power button for more than 12 seconds for reboot receiver!"
 msgstr ""
+"Uwaga — wymuszone ładowanie obrazu odzyskiwania!\n"
+"Utwórz pusty plik STARTUP_RECOVERY w katalogu głównym dysku HDD/USB i przytrzymaj przycisk zasilania przez ponad 12 sekund, aby ponownie uruchomić odbiornik!"
 
 msgid "Attention, this is repeated timer!\n"
 msgstr "Uwaga, to powtarzany timer!\n"
@@ -1204,7 +1203,7 @@ msgid "Automatic scan"
 msgstr "Skanowanie automatyczne"
 
 msgid "Automatically power off box to deep standby mode."
-msgstr ""
+msgstr "Automatycznie wyłączaj urządzenie w tryb głębokiego czuwania."
 
 msgid "Automatically put the TV in standby whenever the receiver goes into standby or deep standby."
 msgstr "Automatycznie przełącz TV w stan czuwania kiedy odbiornik przechodzi w stan czuwania lub wyłącza się."
@@ -1659,6 +1658,10 @@ msgstr "Kanał"
 msgid "Channel Info"
 msgstr "Informacje o kanale"
 
+#, fuzzy
+msgid "Channel Selection"
+msgstr "Wybór kanału"
+
 msgid "Channel context menu"
 msgstr "Menu listy kanałów"
 
@@ -1954,16 +1957,19 @@ msgstr "Skonfiguruj jak mają wyglądać nazwy plików nagrań."
 msgid "Configure how the fan should operate"
 msgstr "Skonfiguruj tryb pracy wentylatora"
 
-msgid "Configure if and how crypto icons will be shown in the channel selection list."
+#, fuzzy
+msgid "Configure if and how crypto icons will be shown in the channel selection list (left alignment only available in single line mode)."
 msgstr "Skonfiguruj czy i jak wyświetlać w liście ikony informujące o tym, że kanał jest kodowany."
 
 msgid "Configure if and how long the latest service in Picture in Picture mode will be remembered."
 msgstr "Skonfiguruj czy, i jak długo, ma być pamiętany ostatni kanał wyświetlony w PiP."
 
-msgid "Configure if and how service type icons will be shown in the channel selection list."
+#, fuzzy
+msgid "Configure if and how service type icons will be shown in the channel selection list (left alignment only available in single line mode)."
 msgstr "Skonfiguruj czy i jak wyświetlać ikony typu w liście kanałów."
 
-msgid "Configure if and how the record indicator will be shown in the channel selection list."
+#, fuzzy
+msgid "Configure if and how the record indicator will be shown in the channel selection list (left alignment only available in single line mode)."
 msgstr "Skonfiguruj czy i jak zaznaczać w liście wydarzenie, które jest aktualnie nagrywane."
 
 msgid "Configure if and how wide columns will be shown in the channel selection list."
@@ -2270,7 +2276,7 @@ msgid "Connected satellites"
 msgstr "Podłączone satelity"
 
 msgid "Connected through another tuner"
-msgstr ""
+msgstr "Podłączony przez inny tuner"
 
 msgid "Connected to"
 msgstr "Podłączony do"
@@ -2422,7 +2428,7 @@ msgid "Current value: "
 msgstr "Aktualna wartość: "
 
 msgid "Currently the commit log cannot be retrieved - please try later again."
-msgstr ""
+msgstr "Obecnie nie można pobrać dziennika zatwierdzeń. Spróbuj ponownie później."
 
 msgid "Custom skip time for '1'/'3' buttons"
 msgstr "Czas przeskoku dla klawiszy '1'/'3'"
@@ -2545,7 +2551,7 @@ msgid "Deep Standby LED"
 msgstr "Dioda LED w głębokim czuwaniu"
 
 msgid "Deep standby"
-msgstr "Głębokie gotowość"
+msgstr "Głębokie czuwanie"
 
 msgid "Default"
 msgstr "Domyślny"
@@ -2640,6 +2646,9 @@ msgstr "Opóźnienie w milisekundach przed rozpoczęciem przewijania tekstu na w
 
 msgid "Delay in miliseconds between scrolling characters on display."
 msgstr "Opóźnienie w milisekundach pomiędzy przewijanymi literami na wyświetlaczu."
+
+msgid "Delay when closing a stream relay service before reallocating the tuner for another service. Using '0' is only recommended for boxes with multiple satellite tuners."
+msgstr ""
 
 msgid "Delete"
 msgstr "Usuń"
@@ -4398,7 +4407,7 @@ msgid "If set to 'yes' the same commands will be sent to the TV for deep standby
 msgstr "W przypadku ustawienia na \"tak\" te same polecenia będą wysyłane do telewizora w przypadku stanu głębokiego czuwania (wyłączenia), jak podczas zdarzeń w stanie czuwania."
 
 msgid "If set to 'yes', allows you to use timeshift with alternative audio plugins."
-msgstr ""
+msgstr "Jeśli ustawione na 'tak', umożliwia użycie funkcji timeshift z alternatywnymi wtyczkami audio."
 
 msgid "If the box is supposed to enter deep standby e.g. monday night at 1 AM, it actually is already tuesday. To enable this anyway, differing next day start time can be specified here."
 msgstr "Jeżeli odbiornik ma wejść w stan głębokiej czuwania np. w poniedziałek o 1 w nocy, właściwie jest już wtorek. Aby mimo wszystko to włączyć, można tutaj określić inny czas rozpoczęcia następnego dnia."
@@ -4446,7 +4455,7 @@ msgid "Ignore conflict"
 msgstr "Ignoruj konflikt"
 
 msgid "Image View On"
-msgstr ""
+msgstr "Wyświetlanie obrazu włączone"
 
 #, python-format
 msgid ""
@@ -4762,7 +4771,7 @@ msgid "Kernel version: "
 msgstr "Wersja kernela: "
 
 msgid "Kexec MultiBoot Initialisation - will reboot after 10 seconds."
-msgstr ""
+msgstr "Inicjalizacja Kexec MultiBoot — uruchomi się ponownie po 10 sekundach"
 
 msgid ""
 "Kexec MultiBoot Initialisation in progress!\n"
@@ -4770,9 +4779,13 @@ msgid ""
 "Will reboot after restoring any eMMC slots.\n"
 "This can take from 1 -> 5 minutes per slot."
 msgstr ""
+"Inicjalizacja Kexec MultiBoot w toku!\n"
+"\n"
+"Uruchomi się ponownie po przywróceniu wszystkich slotów eMMC.\n"
+"Może to zająć od 1 -> 5 minut na slot."
 
 msgid "Kexec MultiBoot Manager"
-msgstr ""
+msgstr "Kexec MultiBoot Menedżer"
 
 msgid "Key Events"
 msgstr ""
@@ -5020,6 +5033,9 @@ msgid "Luxembourgish"
 msgstr "Luxemburski"
 
 msgid "MB"
+msgstr ""
+
+msgid "MENU"
 msgstr ""
 
 msgid "MHz"
@@ -5693,7 +5709,7 @@ msgid "No, never"
 msgstr "Nie, nigdy"
 
 msgid "No, only download"
-msgstr ""
+msgstr "Nie, tylko pobierz"
 
 msgid "None"
 msgstr "Brak"
@@ -5777,6 +5793,10 @@ msgstr "Ilość powtórzeń tekstu na wyświetlaczu."
 
 msgid "Number or SMS style data entry"
 msgstr "Cyfra lub wprowadzanie danych typu SMS"
+
+#, fuzzy
+msgid "OE Version: "
+msgstr "Wersja enigmy: "
 
 msgid "OK"
 msgstr "OK"
@@ -5960,7 +5980,13 @@ msgstr ""
 msgid "PPanel"
 msgstr ""
 
+msgid "PREVIOUS"
+msgstr ""
+
 msgid "PULSe 4K(mini)"
+msgstr ""
+
+msgid "PVR"
 msgstr ""
 
 msgid "Package list update"
@@ -6434,10 +6460,10 @@ msgstr "Zarządzanie zasilaniem. Więcej informacji znajdziesz w instrukcji obs�
 
 #, fuzzy
 msgid "Power off time"
-msgstr "Sortuj wg czasu"
+msgstr "Czas wyłączenia"
 
 msgid "Power off timer"
-msgstr ""
+msgstr "Timer wyłączania zasilania"
 
 msgid "Power on display"
 msgstr "Włącz wyświetlacz"
@@ -6704,6 +6730,10 @@ msgstr "Python frontend dla /tmp/mmi.socket"
 msgid "Python version: "
 msgstr "Wersja Pythona: "
 
+#, fuzzy
+msgid "Pythonscript"
+msgstr "Skrypty shell"
+
 msgid "Qatar"
 msgstr "Katar"
 
@@ -6757,6 +6787,8 @@ msgid ""
 "Really permanently delete MultiBoot files?\n"
 "%s"
 msgstr ""
+"Czy naprawdę trwale usunąć pliki MultiBoot?\n"
+"%s"
 
 msgid "Really reboot now?"
 msgstr "Wykonać reboot teraz?"
@@ -6791,7 +6823,7 @@ msgid "Recall to previous service"
 msgstr "Powróć do poprzedniego kanału"
 
 msgid "Receiver or driver does not support FCC"
-msgstr ""
+msgstr "Odbiornik lub sterownik nie obsługuje FCC"
 
 msgid "Reception settings"
 msgstr "Ustawienia odbioru"
@@ -6813,6 +6845,8 @@ msgid ""
 "Recording IPTV with ServiceApp player enabled, timer ended!\n"
 "Please recheck it!"
 msgstr ""
+"Nagrywanie IPTV z włączonym odtwarzaczem ServiceApp, licznik czasu dobiegł końca!\n"
+"Sprawdź to jeszcze raz!"
 
 msgid "Recording Setup"
 msgstr "Konfiguracja nagrywania"
@@ -7882,6 +7916,10 @@ msgstr "Parametry kanału - wartości z tunera"
 msgid "Service info - tuner setting values"
 msgstr "Parametry kanału - wartości z listy"
 
+#, fuzzy
+msgid "Service info font size"
+msgstr "Parametry kanału"
+
 msgid ""
 "Service invalid!\n"
 "(Timeout reading PMT)"
@@ -7892,12 +7930,20 @@ msgstr ""
 msgid "Service name"
 msgstr "Nazwa kanału"
 
+#, fuzzy
+msgid "Service name font size"
+msgstr "Nazwa kanału"
+
 msgid ""
 "Service not found!\n"
 "(SID not found in PAT)"
 msgstr ""
 "Kanał nie znaleziony!\n"
 "(SID nie znaleziony w PAT)"
+
+#, fuzzy
+msgid "Service number font size"
+msgstr "Rozmiar czcionki napisów"
 
 msgid "Service reference"
 msgstr "Referencje kanału"
@@ -7987,7 +8033,8 @@ msgstr "Wpisz hasło do zalogowania do OpenWebif tunera rezerwowego"
 msgid "Set the port of the OpenWebif from your fallback tuner"
 msgstr "Wpisz port OpenWebif tunera rezerwowego"
 
-msgid "Set the type of the progress indication in the channel selection screen."
+#, fuzzy
+msgid "Set the type of the progress indication in the channel selection screen (right alignment only available in single line mode)."
 msgstr "Ustaw typ paska postępu wydarzenia w liście wyboru kanałów."
 
 msgid "Set time window to 1 hour"
@@ -8118,6 +8165,9 @@ msgstr "Informacje o kodowaniu na pasku info"
 
 msgid "Show detailed event info"
 msgstr "Pokaż szczegółowy opis audycji"
+
+msgid "Show disabled timers (local only)"
+msgstr "Pokaż wyłączone timery (tylko lokalnie)"
 
 msgid "Show event details"
 msgstr "Pokaż szczegóły wydarzenia"
@@ -8361,9 +8411,6 @@ msgstr "Pojedynczy"
 
 msgid "Single EPG"
 msgstr "Zwykłe EPG"
-
-msgid "Single line mode"
-msgstr "Tryb pojedynczej linii"
 
 msgid "Single satellite"
 msgstr "Jeden satelita"
@@ -8813,7 +8860,7 @@ msgid "Stopped"
 msgstr "Zatrzymany"
 
 msgid "Storage device not available or not initialized."
-msgstr ""
+msgstr "Urządzenie pamięci masowej jest niedostępne lub nie zostało zainicjowane"
 
 msgid "Store at index"
 msgstr "Zapisz z indeksem"
@@ -8826,6 +8873,10 @@ msgstr "Pozycja zapamiętana"
 
 msgid "Stream"
 msgstr "Strumień"
+
+#, fuzzy
+msgid "Stream Relay delay"
+msgstr "Opóźnienie przewijania"
 
 msgid "Stream request"
 msgstr "Żądanie strumienia"
@@ -8882,7 +8933,7 @@ msgid "Subtitle selection..."
 msgstr "Wybór napisów..."
 
 msgid "Subtitle settings"
-msgstr "Napisy"
+msgstr "Ustawienia napisów"
 
 msgid "Subtitle show/hide..."
 msgstr "Pokaż/ukryj napisy..."
@@ -9057,9 +9108,9 @@ msgstr ""
 #. TRANSLATORS: Add here whatever should be shown in the "translator" about screen, up to 6 lines (use \n for newline)
 msgid "TRANSLATOR_INFO"
 msgstr ""
-"Tłumaczenie: @blzr\n, @pololoko111\n"
+"Tłumaczenie: @blzr, @pololoko111, @hasiok\n"
 "http://openpli.org/forums\n"
-"Ostatnia aktualizacja 2023.11.19"
+"Ostatnia aktualizacja 2024.01.16"
 
 msgid "TS file is too large for ISO9660 level 1!"
 msgstr "Plik TS jest za duży dla ISO9660 level 1!"
@@ -9125,7 +9176,7 @@ msgid "Testscreens that are helpfull to fine-tune your display"
 msgstr "Ekrany testowe pomocne w precyzyjnym dostrojeniu obrazu"
 
 msgid "Text View On"
-msgstr ""
+msgstr "Widok tekstu włączony"
 
 msgid "Text color"
 msgstr "Kolor tekstu"
@@ -9158,7 +9209,7 @@ msgid "The DVD standard doesn't support H.264 (HDTV) video streams. Do you want 
 msgstr "Standard DVD nie wspiera strumienia video H.264 (HDTV). Czy zamiast tego nagrać dane w formacie data DVD? Dane nie będą czytane w stacjonarnych odtwarzaczach DVD."
 
 msgid "The IP address from the streamrelay server that is used to descramble services that can only be encrypted via streamrelay"
-msgstr ""
+msgstr "Adres IP z serwera streamrelay używany do dekodowania usług, które można zaszyfrować wyłącznie za pomocą streamrelay"
 
 msgid "The PIN code has been changed successfully."
 msgstr "Kod PIN został zmieniony pomyślnie."
@@ -9191,6 +9242,11 @@ msgstr ""
 "Katalog %s jest niezapisywalny.\n"
 "Upewnij się, że zamiast niego wybrałeś zapisywalny katalog."
 
+msgid ""
+"The enigma.info file for the boxinformation is not available or the content is invalid.\n"
+"Press any key to continue?"
+msgstr ""
+
 msgid "The following files were found..."
 msgstr "Następujące pliki zostały znalezione..."
 
@@ -9205,7 +9261,7 @@ msgstr ""
 "Zainstaluj go najpierw."
 
 msgid "The number of steps to change the volume on the device the keys are forwarded to."
-msgstr ""
+msgstr "Liczba kroków zmiany głośności na urządzeniu, do którego przekazywane są klawisze."
 
 msgid ""
 "The overscan wizard has been completed.\n"
@@ -9252,7 +9308,7 @@ msgid "The path %s already exists."
 msgstr "Ścieżka %s już istnieje."
 
 msgid "The port from the streamrelay server that is used to descramble services that can only be encrypted via streamrelay"
-msgstr ""
+msgstr "Port z serwera streamrelay używany do deszyfrowania usług, które można zaszyfrować tylko za pomocą streamrelay"
 
 #, python-format
 msgid "The results have been written to %s"
@@ -9262,7 +9318,7 @@ msgid "The saved PIN was cleared."
 msgstr "Zapisany PIN został usunięty."
 
 msgid "The services/bouquets list is reloaded!"
-msgstr ""
+msgstr "Lista kanałów/bukietów została ponownie załadowana!"
 
 msgid "The sleep timer has been activated."
 msgstr "Wyłącznik czasowy został aktywowany."
@@ -9335,6 +9391,9 @@ msgstr ""
 
 msgid "This DVD RW medium is already formatted - reformatting will erase all content on the disc."
 msgstr "Nosnik DVD RW jest już sformatowany - jego ponowny format spowoduje utratę wszystkich danych."
+
+msgid "This allows you to change the font size relative to skin size, so 1 increases by 1 point size, and -1 decreases by 1 point size"
+msgstr "Pozwala to zmienić rozmiar czcionki w stosunku do rozmiaru skóry, więc 1 zwiększa rozmiar o 1 punkt, a -1 zmniejsza rozmiar o 1 punkt"
 
 msgid "This bouquet is protected by a parental control PIN"
 msgstr "Ten bukiet jest chroniony kodem PIN"
@@ -9645,7 +9704,7 @@ msgstr "Typ timera"
 
 #, fuzzy
 msgid "Timer:"
-msgstr "Timery"
+msgstr "Timery:"
 
 #, fuzzy
 msgid "Timeshift"
@@ -9779,9 +9838,8 @@ msgstr "Tłumaczenie"
 msgid "Transmission mode"
 msgstr "Tryb transmisji"
 
-#, fuzzy
 msgid "Transponder"
-msgstr "Czas z transpondera"
+msgstr ""
 
 msgid "Transponder Time"
 msgstr "Czas z transpondera"
@@ -9822,7 +9880,7 @@ msgstr "Dostrojenie nie powiodło się!"
 
 #, fuzzy
 msgid "Tuner"
-msgstr "Ustawienia"
+msgstr "Głowica"
 
 #, fuzzy
 msgid "Tuner Configuration"
@@ -9889,9 +9947,11 @@ msgstr ""
 msgid "Two"
 msgstr "Dwa"
 
+#, fuzzy
 msgid "Two lines"
 msgstr "Dwie linie"
 
+#, fuzzy
 msgid "Two lines and next event"
 msgstr "Dwie linie i następne wydarzenie"
 
@@ -9935,7 +9995,7 @@ msgid "Unable to backup settings as the AutoBackup plugin is missing, do you wan
 msgstr "Nie można wykonać kopii zapasowej ustawień, ponieważ wtyczka AutoBackup jest niedostępna, czy chcesz kontynuować?"
 
 msgid "Unable to complete - Kexec Multiboot files missing!"
-msgstr ""
+msgstr "Nie można ukończyć — brak plików Kexec Multiboot!"
 
 msgid "Unable to create the required directories on the media (e.g. USB stick or Harddisk) - Please verify media and try again!"
 msgstr "Nie można utworzyć wymaganych katalogów na nośniku (np. pamięć USB lub dysk twardy) - sprawdź nośnik i spróbuj ponownie!"
@@ -9965,7 +10025,7 @@ msgid "Unencrypted"
 msgstr "Nieszyfrowane"
 
 msgid "Unexpected error while retrieving fallback tuner's timer information"
-msgstr ""
+msgstr "Nieoczekiwany błąd podczas pobierania informacji o zegarze tunera rezerwowego"
 
 msgid "UnhandledKey"
 msgstr "Klawisz nieobsługiwany"
@@ -10148,6 +10208,10 @@ msgstr "Użyj oryginalnej pozycji jak w teletekst"
 
 msgid "Use power measurement"
 msgstr "Użyj pomiaru mocy"
+
+#, fuzzy
+msgid "Use skin default"
+msgstr "Ustaw domyślny"
 
 msgid "Use the network wizard to configure selected network adapter"
 msgstr "Użyj kreatora sieci do konfiguracji wybranego adaptera"
@@ -10398,7 +10462,7 @@ msgid "Volume keys on the receiver remote will control the TV volume."
 msgstr "Przyciski głośności na pilocie odbiornika będą sterować głośnością telewizora."
 
 msgid "Volume up"
-msgstr "Głośnośniej"
+msgstr "Głośniej"
 
 msgid "W"
 msgstr "W"
@@ -10777,7 +10841,7 @@ msgid "Where to save temporary timeshift recordings?"
 msgstr "Gdzie zapisywać tymczasowe nagrania timeshift?"
 
 msgid "Wireless LAN"
-msgstr "Sieć bezprzewodowa"
+msgstr "Sieć bezprzewodowa LAN"
 
 msgid "Wireless network"
 msgstr "Sieć bezprzewodowa"
@@ -11657,6 +11721,10 @@ msgstr "Medycyna/Fizjologia/Psychologia"
 msgid "menu"
 msgstr "Menu"
 
+#, fuzzy
+msgid "min"
+msgstr "min"
+
 msgid "mins"
 msgstr "min"
 
@@ -12088,7 +12156,7 @@ msgid "true"
 msgstr "tak"
 
 msgid "type"
-msgstr "typ "
+msgstr "typ"
 
 msgid "unavailable"
 msgstr "Niedostępny"
@@ -12115,7 +12183,7 @@ msgid "until standby/restart"
 msgstr "Do standby/restartu"
 
 msgid "use HDMI cacenter"
-msgstr ""
+msgstr "użyj centrum HDMI"
 
 #, fuzzy
 msgid "use best / controlled by HDMI"
@@ -12222,4 +12290,10 @@ msgid "zapped"
 msgstr "Przełączony"
 
 msgid "®"
+msgstr ""
+
+msgid "°E"
+msgstr ""
+
+msgid "°W"
 msgstr ""
