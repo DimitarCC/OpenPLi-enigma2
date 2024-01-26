@@ -2,7 +2,7 @@ from Screens.ChannelSelection import ChannelSelection, BouquetSelector, SilentBo
 
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.ActionMap import NumberActionMap
-from Components.Harddisk import harddiskmanager
+from Components.Harddisk import harddiskmanager, findMountPoint
 from Components.Input import Input
 from Components.Label import Label
 from Components.MovieList import AUDIO_EXTENSIONS, MOVIE_EXTENSIONS, DVD_EXTENSIONS
@@ -11,7 +11,7 @@ from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServiceList import refreshServiceList
 from Components.Sources.Boolean import Boolean
 from Components.config import config, ConfigBoolean, ConfigClock
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from Components.UsageConfig import preferredInstantRecordPath, defaultMoviePath
 from Components.VolumeControl import VolumeControl
 from Components.Sources.StaticText import StaticText
@@ -72,18 +72,19 @@ def setResumePoint(session):
 			if not pos[0]:
 				key = ref.toString()
 				lru = int(time())
-				l = seek.getLength()
-				if l:
-					l = l[1]
+				sl = seek.getLength()
+				if sl:
+					sl = sl[1]
 				else:
-					l = None
-				resumePointCache[key] = [lru, pos[1], l]
-				if len(resumePointCache) > 50:
-					candidate = key
-					for k, v in resumePointCache.items():
-						if v[0] < lru:
-							candidate = k
-					del resumePointCache[candidate]
+					sl = None
+				resumePointCache[key] = [lru, pos[1], sl]
+				for k, v in list(resumePointCache.items()):
+					if v[0] < lru:
+						candidate = k
+						filepath = os.path.realpath(candidate.split(':')[-1])
+						mountpoint = findMountPoint(filepath)
+						if os.path.ismount(mountpoint) and not os.path.exists(filepath):
+							del resumePointCache[candidate]
 				if lru - resumePointCacheLast > 3600:
 					saveResumePoints()
 
@@ -116,18 +117,27 @@ def saveResumePoints():
 	try:
 		f = open('/etc/enigma2/resumepoints.pkl', 'wb')
 		pickle.dump(resumePointCache, f, pickle.HIGHEST_PROTOCOL)
+		f.close()
 	except Exception as ex:
-		print("[InfoBar] Failed to write resumepoints:", ex)
+		print("[saveResumePoints] Failed to write resumepoints:", ex)
 	resumePointCacheLast = int(time())
 
 
 def loadResumePoints():
 	import pickle
 	try:
-		return pickle.load(open('/etc/enigma2/resumepoints.pkl', 'rb'))
+		f = open('/etc/enigma2/resumepoints.pkl', 'rb')
+		pickleFile = pickle.load(f)
+		f.close()
+		return pickleFile
 	except Exception as ex:
-		print("[InfoBar] Failed to load resumepoints:", ex)
+		print("[loadResumePoints] Failed to load resumepoints:", ex)
 		return {}
+
+
+def updateResumePointCache():
+	global resumePointCache
+	resumePointCache = loadResumePoints()
 
 
 resumePointCache = loadResumePoints()
@@ -135,13 +145,19 @@ resumePointCacheLast = int(time())
 
 
 class whitelist:
+	FILENAME_VBI = "/etc/enigma2/whitelist_vbi"
 	vbi = []
+	FILENAME_BOUQUETS = "/etc/enigma2/whitelist_bouquets"
+	bouquets = []
 
 def reload_whitelist_vbi():
-	whitelist.vbi = [line.strip() for line in open('/etc/enigma2/whitelist_vbi', 'r').readlines()] if os.path.isfile('/etc/enigma2/whitelist_vbi') else []
+	whitelist.vbi = [line.strip() for line in open(whitelist.FILENAME_VBI, 'r').readlines()] if os.path.isfile(whitelist.FILENAME_VBI) else []
 
+def reload_whitelist_bouquets():
+	whitelist.bouquets = [line.strip() for line in open(whitelist.FILENAME_BOUQUETS, 'r').readlines()] if os.path.isfile(whitelist.FILENAME_BOUQUETS) else []
 
 reload_whitelist_vbi()
+reload_whitelist_bouquets()
 
 class InfoBarStreamRelay:
 
@@ -502,6 +518,9 @@ class InfoBarShowHide(InfoBarScreenSaver):
 					return ".hidevbi." in servicepath.lower()
 		return service and service.toString() in whitelist.vbi
 
+	def checkBouquets(self, bouquet):
+		return bouquet in whitelist.bouquets
+
 	def checkStreamrelay(self, service):
 		return streamrelay.checkService(service)
 
@@ -519,8 +538,16 @@ class InfoBarShowHide(InfoBarScreenSaver):
 				whitelist.vbi.remove(service)
 			else:
 				whitelist.vbi.append(service)
-			open('/etc/enigma2/whitelist_vbi', 'w').write('\n'.join(whitelist.vbi))
+			open(whitelist.FILENAME_VBI, 'w').write('\n'.join(whitelist.vbi))
 			self.showHideVBI()
+
+	def ToggleBouquet(self, bouquet):
+		if bouquet in whitelist.bouquets:
+			whitelist.bouquets.remove(bouquet)
+		else:
+			whitelist.bouquets.append(bouquet)
+		open(whitelist.FILENAME_BOUQUETS, 'w').write('\n'.join(whitelist.bouquets))
+
 
 class BufferIndicator(Screen):
 	def __init__(self, session):
@@ -2144,8 +2171,8 @@ class InfoBarTimeshift:
 		self.restartSubtitle()
 
 	def setLCDsymbolTimeshift(self):
-		if SystemInfo["LCDsymbol_timeshift"]:
-			open(SystemInfo["LCDsymbol_timeshift"], "w").write(self.timeshiftEnabled() and "1" or "0")
+		if BoxInfo.getItem("LCDsymbol_timeshift"):
+			open(BoxInfo.getItem("LCDsymbol_timeshift"), "w").write(self.timeshiftEnabled() and "1" or "0")
 
 	def __serviceStarted(self):
 		self.pvrStateDialog.hide()
@@ -2292,7 +2319,7 @@ class InfoBarExtensions:
 
 	def __init__(self):
 		self.list = []
-		self.addExtension((lambda: _("Softcam Setup"), self.openSoftcamSetup, lambda: config.misc.softcam_setup.extension_menu.value and SystemInfo["HasSoftcamInstalled"]), "1")
+		self.addExtension((lambda: _("Softcam Setup"), self.openSoftcamSetup, lambda: config.misc.softcam_setup.extension_menu.value and BoxInfo.getItem("HasSoftcamInstalled")), "1")
 		self.addExtension((lambda: _("Manually import from fallback tuner"), self.importChannels, lambda: config.usage.remote_fallback_extension_menu.value and config.usage.remote_fallback_import.value))
 		self["InstantExtensionsActions"] = HelpableActionMap(self, ["InfobarExtensions"],
 			{
@@ -2429,7 +2456,7 @@ class InfoBarPiP:
 
 		self.lastPiPService = None
 
-		if SystemInfo["PIPAvailable"]:
+		if BoxInfo.getItem("PIPAvailable"):
 			self["PiPActions"] = HelpableActionMap(self, ["InfobarPiPActions"],
 				{
 					"activatePiP": (self.activePiP, self.activePiPName),

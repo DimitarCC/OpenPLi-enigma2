@@ -26,7 +26,7 @@ profile("ChannelSelection.py 2.3")
 from Components.Input import Input
 profile("ChannelSelection.py 3")
 from Components.ChoiceList import ChoiceList, ChoiceEntryComponent
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from Components.Sources.StaticText import StaticText
 from Screens.InputBox import PinInput
 from Screens.VirtualKeyBoard import VirtualKeyBoard
@@ -197,7 +197,7 @@ class ChannelContextMenu(Screen):
 								append_when_current_valid(current, menu, (_("Remove from parental protection"), boundFunction(self.removeParentalProtection, current)), level=0)
 						if self.parentalControl.blacklist and config.ParentalControl.hideBlacklist.value and not self.parentalControl.sessionPinCached and config.ParentalControl.storeservicepin.value != "never":
 							append_when_current_valid(current, menu, (_("Unhide parental control services"), self.unhideParentalServices), level=0, key="1")
-					if SystemInfo["3DMode"] and fileExists(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/OSD3DSetup/plugin.pyc")):
+					if BoxInfo.getItem("3DMode") and fileExists(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/OSD3DSetup/plugin.pyc")):
 						if eDVBDB.getInstance().getFlag(eServiceReference(current.toString())) & FLAG_IS_DEDICATED_3D:
 							append_when_current_valid(current, menu, (_("Unmark service as dedicated 3D service"), self.removeDedicated3DFlag), level=2)
 						else:
@@ -217,7 +217,6 @@ class ChannelContextMenu(Screen):
 								append_when_current_valid(current, menu, (_("Do not center DVB subs on this service"), self.removeCenterDVBSubsFlag), level=2)
 							else:
 								append_when_current_valid(current, menu, (_("Do center DVB subs on this service"), self.addCenterDVBSubsFlag), level=2)
-
 					if haveBouquets:
 						bouquets = self.csel.getBouquetList()
 						if bouquets is None:
@@ -234,7 +233,7 @@ class ChannelContextMenu(Screen):
 						if not self.inBouquet:
 							append_when_current_valid(current, menu, (_("Add service to favourites"), self.addServiceToBouquetSelected), level=0, key="5")
 							self.addFunction = self.addServiceToBouquetSelected
-					if SystemInfo["PIPAvailable"]:
+					if BoxInfo.getItem("PIPAvailable"):
 						self.PiPAvailable = True
 						if self.csel.dopipzap:
 							append_when_current_valid(current, menu, (_("Play in main window"), self.playMain), level=0, key="red")
@@ -277,6 +276,10 @@ class ChannelContextMenu(Screen):
 				if removed_userbouquets_available():
 					append_when_current_valid(current, menu, (_("Purge deleted user bouquets"), self.purgeDeletedBouquets), level=0)
 					append_when_current_valid(current, menu, (_("Restore deleted user bouquets"), self.restoreDeletedBouquets), level=0)
+				if Screens.InfoBar.InfoBar.instance.checkBouquets(current.toString().split('"')[1]):
+					append_when_current_valid(current, menu, (_("Unpin Userbouquet"), self.toggleBouquet), level=2)
+				else:
+					append_when_current_valid(current, menu, (_("Pin Userbouquet"), self.toggleBouquet), level=2)
 				append_when_current_valid(current, menu, (_("Reload services/bouquets list"), self.reloadServicesBouquets), level=2)
 		if self.inBouquet: # current list is editable?
 			if csel.bouquet_mark_edit == OFF:
@@ -341,6 +344,10 @@ class ChannelContextMenu(Screen):
 	def toggleVBI(self):
 		Screens.InfoBar.InfoBar.instance.ToggleHideVBI(self.csel.getCurrentSelection())
 		Screens.InfoBar.InfoBar.instance.showHideVBI()
+		self.close()
+
+	def toggleBouquet(self):
+		Screens.InfoBar.InfoBar.instance.ToggleBouquet(self.csel.getCurrentSelection().toString().split('"')[1])
 		self.close()
 
 	def toggleStreamrelay(self):
@@ -461,7 +468,7 @@ class ChannelContextMenu(Screen):
 
 	def openSetup(self):
 		from Screens.Setup import Setup
-		self.session.openWithCallback(self.cancelClick, Setup, "userinterface")
+		self.session.openWithCallback(self.cancelClick, Setup, "channelselection")
 
 	def cancelClick(self, dummy=False):
 		self.close(False)

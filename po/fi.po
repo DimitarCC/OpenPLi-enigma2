@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-08 16:10+0100\n"
+"POT-Creation-Date: 2024-01-16 17:53+0100\n"
 "PO-Revision-Date: 2020-05-16 18:41+0200\n"
 "Last-Translator: jamu\n"
 "Language-Team: BoxFreak/jamu\n"
@@ -1158,9 +1158,6 @@ msgstr "taide/kulttuuri (ilman musiikkia, yleinen)"
 msgid "Aruba"
 msgstr "Aruba"
 
-msgid "As defined by the skin"
-msgstr "Teeman mukaisesti"
-
 #
 msgid "Ask user"
 msgstr "Kysy käyttäjältä"
@@ -1821,6 +1818,11 @@ msgstr "Kanava"
 msgid "Channel Info"
 msgstr "Kanavatiedot"
 
+#
+#, fuzzy
+msgid "Channel Selection"
+msgstr "Kanavanvalinta"
+
 msgid "Channel context menu"
 msgstr "Kanavan valikko"
 
@@ -2165,16 +2167,19 @@ msgstr "Määritä tallenteiden tiedostonimien rakenne."
 msgid "Configure how the fan should operate"
 msgstr "Määritä tuulettimen toiminta"
 
-msgid "Configure if and how crypto icons will be shown in the channel selection list."
+#, fuzzy
+msgid "Configure if and how crypto icons will be shown in the channel selection list (left alignment only available in single line mode)."
 msgstr "Määrittää näytetäänkö salauksen kuvakkeet kanavalistassa."
 
 msgid "Configure if and how long the latest service in Picture in Picture mode will be remembered."
 msgstr "Määritä kuinka pitkään viimeisin käytetty PiP (kuva-kuvassa) kanava muistetaan."
 
-msgid "Configure if and how service type icons will be shown in the channel selection list."
+#, fuzzy
+msgid "Configure if and how service type icons will be shown in the channel selection list (left alignment only available in single line mode)."
 msgstr "Määritä näytetäänkö kanavatyypin kuvakkeet kanavanlistassa."
 
-msgid "Configure if and how the record indicator will be shown in the channel selection list."
+#, fuzzy
+msgid "Configure if and how the record indicator will be shown in the channel selection list (left alignment only available in single line mode)."
 msgstr "Määrittä näytetäänkö käynnissä oleva tallennus kanavalistassa."
 
 msgid "Configure if and how wide columns will be shown in the channel selection list."
@@ -2905,6 +2910,9 @@ msgid "Delay in miliseconds before start of scrolling text on display."
 msgstr "Viive (ms) ennen rullaavia näyttötekstejä."
 
 msgid "Delay in miliseconds between scrolling characters on display."
+msgstr ""
+
+msgid "Delay when closing a stream relay service before reallocating the tuner for another service. Using '0' is only recommended for boxes with multiple satellite tuners."
 msgstr ""
 
 #
@@ -5597,6 +5605,9 @@ msgstr "Luxemburg"
 msgid "MB"
 msgstr "B"
 
+msgid "MENU"
+msgstr ""
+
 msgid "MHz"
 msgstr ""
 
@@ -6475,6 +6486,10 @@ msgstr ""
 msgid "Number or SMS style data entry"
 msgstr ""
 
+#, fuzzy
+msgid "OE Version: "
+msgstr "Enigman versio: "
+
 #
 msgid "OK"
 msgstr "OK"
@@ -6665,7 +6680,13 @@ msgstr "PMT PID"
 msgid "PPanel"
 msgstr ""
 
+msgid "PREVIOUS"
+msgstr ""
+
 msgid "PULSe 4K(mini)"
+msgstr ""
+
+msgid "PVR"
 msgstr ""
 
 #
@@ -7530,6 +7551,9 @@ msgstr "Python-liittymä /tmp/mmi.socket:ille"
 
 msgid "Python version: "
 msgstr "Pythonin versio: "
+
+msgid "Pythonscript"
+msgstr ""
 
 msgid "Qatar"
 msgstr "Qatar"
@@ -8884,6 +8908,11 @@ msgid "Service info - tuner setting values"
 msgstr "Kanavatiedot - virittimen asetukset"
 
 #
+#, fuzzy
+msgid "Service info font size"
+msgstr "Kanavatiedot"
+
+#
 msgid ""
 "Service invalid!\n"
 "(Timeout reading PMT)"
@@ -8895,6 +8924,10 @@ msgstr ""
 msgid "Service name"
 msgstr "Kanavan nimi"
 
+#, fuzzy
+msgid "Service name font size"
+msgstr "Kanavan nimi"
+
 #
 msgid ""
 "Service not found!\n"
@@ -8903,6 +8936,10 @@ msgstr ""
 "Valittua kanavaa ei löydy.\n"
 "(Kanavan Service ID:tä ei löydy\n"
 "Program Association Tablesta.)"
+
+#, fuzzy
+msgid "Service number font size"
+msgstr "Tekstityksen koko"
 
 msgid "Service reference"
 msgstr "Referenssi"
@@ -9000,7 +9037,8 @@ msgstr "Aseta etävastaanottimen OpenWebIf salasana"
 msgid "Set the port of the OpenWebif from your fallback tuner"
 msgstr "Aseta etävastaanottimen OpenWebIf portti"
 
-msgid "Set the type of the progress indication in the channel selection screen."
+#, fuzzy
+msgid "Set the type of the progress indication in the channel selection screen (right alignment only available in single line mode)."
 msgstr "Määritä ohjelman pituuden osoittamisen tyyppi kanavien valintalistassa."
 
 msgid "Set time window to 1 hour"
@@ -9140,6 +9178,9 @@ msgstr "Näytä salaustyyppi tietopalkissa"
 
 msgid "Show detailed event info"
 msgstr "Näytä tarkempi ohjelmatieto"
+
+msgid "Show disabled timers (local only)"
+msgstr ""
 
 #
 msgid "Show event details"
@@ -9423,11 +9464,6 @@ msgstr "Yksi"
 #
 msgid "Single EPG"
 msgstr "Ohjelmaopas"
-
-#
-#, fuzzy
-msgid "Single line mode"
-msgstr "Valitse video-tila"
 
 #
 msgid "Single satellite"
@@ -9960,6 +9996,9 @@ msgstr "Sijainnin muistipaikka"
 msgid "Stream"
 msgstr "Stream"
 
+msgid "Stream Relay delay"
+msgstr ""
+
 msgid "Stream request"
 msgstr "Streamin pyynti"
 
@@ -10362,6 +10401,11 @@ msgstr ""
 "Hakemistoon %s ei voida tallentaa.\n"
 "Valitse hakemisto johon voidaan tallentaa."
 
+msgid ""
+"The enigma.info file for the boxinformation is not available or the content is invalid.\n"
+"Press any key to continue?"
+msgstr ""
+
 #
 msgid "The following files were found..."
 msgstr "Seuraavat tiedostot löytyi..."
@@ -10515,6 +10559,9 @@ msgstr ""
 #
 msgid "This DVD RW medium is already formatted - reformatting will erase all content on the disc."
 msgstr "Tämä DVD-RW levy on jo alustettu - uudelleenalustus tuhoaa levyn kaiken sisällön."
+
+msgid "This allows you to change the font size relative to skin size, so 1 increases by 1 point size, and -1 decreases by 1 point size"
+msgstr ""
 
 #
 msgid "This bouquet is protected by a parental control PIN"
@@ -11408,6 +11455,10 @@ msgstr "Käytä alkuperäistä teksti-TV tekstin paikkaa "
 #
 msgid "Use power measurement"
 msgstr "Käytä virranmittausta"
+
+#, fuzzy
+msgid "Use skin default"
+msgstr "Oletus"
 
 msgid "Use the network wizard to configure selected network adapter"
 msgstr "Muokkaa valitun verkkosovittimen asetuksia verkkoavustajan opastamana"
@@ -13072,6 +13123,11 @@ msgid "menu"
 msgstr "Valikko"
 
 #
+#, fuzzy
+msgid "min"
+msgstr "%d min"
+
+#
 msgid "mins"
 msgstr "minuuttia"
 
@@ -13731,4 +13787,10 @@ msgid "zapped"
 msgstr "Vaihdettu"
 
 msgid "®"
+msgstr ""
+
+msgid "°E"
+msgstr ""
+
+msgid "°W"
 msgstr ""
